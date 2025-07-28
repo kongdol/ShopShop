@@ -20,11 +20,20 @@ class StartSearchViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureView()
+        
+        search.delegate = self
+    }
+}
+
+
+extension StartSearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("엔터")
+        let vc = ResultViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
-
-
 }
 
 extension StartSearchViewController: ViewDesignProtocol {

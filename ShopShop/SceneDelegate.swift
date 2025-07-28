@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = StartSearchViewController() // 원하는 시작 ViewController로 교체
+            window.rootViewController = UINavigationController(rootViewController: StartSearchViewController())
             self.window = window
             window.makeKeyAndVisible()
     }
