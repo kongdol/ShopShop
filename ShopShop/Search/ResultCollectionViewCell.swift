@@ -80,7 +80,6 @@ extension ResultCollectionViewCell: ViewDesignProtocol {
     func configureView() {
         // 이미지
         imageView.image = UIImage(systemName: "heart")
-        imageView.backgroundColor = .yellow
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12
