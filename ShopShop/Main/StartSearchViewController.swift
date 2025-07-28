@@ -13,6 +13,8 @@ class StartSearchViewController: UIViewController {
     let titleLabel = UILabel()
     let search = UISearchBar()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +32,15 @@ extension StartSearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("엔터")
         let vc = ResultViewController()
+        
+        guard var searchText = search.text, searchText.count > 1 else {
+            // alert
+            print("두글자 이상 입력해주세요")
+            return
+        }
+        
+        // 옵셔널처리하기
+        vc.text = searchText
         navigationController?.pushViewController(vc, animated: true)
     }
     
