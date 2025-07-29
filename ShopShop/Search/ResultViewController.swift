@@ -57,6 +57,9 @@ class ResultViewController: UIViewController {
             }
             
         } fail: {
+            self.showAlert(title: "네트워크 통신이 실패했습니다.", message: "인터넷을 확인해주세요") {
+                self.navigationController?.popViewController(animated: true)
+            }
             print("실패")
         }
         
