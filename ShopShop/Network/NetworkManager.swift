@@ -19,7 +19,7 @@ class NetworkManager {
                      success: @escaping (ShopList) -> Void,
                      fail: @escaping () -> Void)
                     {
-        let url = "ㅁhttps://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30&sort=\(sort)&start=\(page)"
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30&sort=\(sort)&start=\(page)"
         
         let header: HTTPHeaders = [
             "X-Naver-Client-Id": APIKey.naverId,

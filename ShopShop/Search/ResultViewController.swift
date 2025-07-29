@@ -16,8 +16,11 @@ class ResultViewController: UIViewController {
     var list: [ShopData] = []
     var page = 1
     
+    var isEnd = false
+    
     var text: String?
     var sort = "sim"
+    var totalpage = 0
     
     override func loadView() {
         self.view = resultView
@@ -56,6 +59,9 @@ class ResultViewController: UIViewController {
                 self.resultView.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
             }
             
+            self.totalpage = (value.total/value.display)
+            print(self.totalpage)
+            
         } fail: {
             self.showAlert(title: "네트워크 통신이 실패했습니다.", message: "인터넷을 확인해주세요") {
                 self.navigationController?.popViewController(animated: true)
@@ -85,8 +91,6 @@ class ResultViewController: UIViewController {
         
         page = 1
         
-        
-        //콜리퀘스트자리
         callRequest(query: text)
     }
 }
@@ -116,9 +120,19 @@ extension ResultViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         print(#function, indexPath)
         
-        if indexPath.item == (list.count - 3) {
+        if indexPath.item == (list.count - 3) && isEnd == false {
             page += 1
             callRequest(query: text!)
+        }
+        
+        print("현재페이지\(self.page), 전체페이지 \(totalpage)")
+        
+        if totalpage == self.page{
+            isEnd = true
+            print("굿")
+//            self.showAlert(title: "마지막페이지", message: "더이상보여줄게없어요") {
+//            
+//            }
         }
     }
     

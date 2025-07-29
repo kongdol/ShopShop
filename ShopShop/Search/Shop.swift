@@ -9,6 +9,7 @@ import Foundation
 
 struct ShopList: Decodable {
     let total: Int
+    let display: Int
     let items: [ShopData]
 }
 
