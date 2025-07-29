@@ -10,10 +10,12 @@
 		56D2AFB82E36F85700402996 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56D2AFB72E36F85700402996 /* Alamofire */; };
 		56D2AFBB2E36F86400402996 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 56D2AFBA2E36F86400402996 /* SnapKit */; };
 		56D2B2612E37D41800402996 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 56D2B2602E37D41800402996 /* Kingfisher */; };
+		56D2B3C52E389ED600402996 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 56D2B3C42E389ED600402996 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		56D2AF9B2E36F78900402996 /* ShopShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56D2B3C42E389ED600402996 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -54,6 +56,7 @@
 		56D2AF922E36F78900402996 = {
 			isa = PBXGroup;
 			children = (
+				56D2B3C42E389ED600402996 /* .gitignore */,
 				56D2AF9D2E36F78900402996 /* ShopShop */,
 				56D2AF9C2E36F78900402996 /* Products */,
 			);
@@ -139,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D2B3C52E389ED600402996 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
