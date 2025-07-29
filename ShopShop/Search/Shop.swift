@@ -19,3 +19,4 @@ struct ShopData: Decodable {
     let mallName: String
     let lprice: String
 }
+

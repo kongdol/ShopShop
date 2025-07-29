@@ -10,6 +10,19 @@ import SnapKit
 
 class ResultView: BaseView {
     
+    lazy var twoCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(SecondCell.self, forCellWithReuseIdentifier: SecondCell.identifier)
+        collectionView.backgroundColor = .yellow
+        
+        return collectionView
+    }()
   
     
     lazy var collectionView: UICollectionView = {
@@ -71,6 +84,7 @@ class ResultView: BaseView {
     override func configureHierarchy() {
         self.addSubview(totalLabel)
         self.addSubview(collectionView)
+        self.addSubview(twoCollectionView)
         
         self.addSubview(stackView)
         [accButton, dateButton, highButton, lowButton].forEach{stackView.addArrangedSubview($0)}
@@ -93,6 +107,12 @@ class ResultView: BaseView {
             make.top.equalTo(stackView.snp.bottom).offset(16)
             make.bottom.equalToSuperview().offset(-8)
             make.leading.trailing.equalToSuperview().inset(8)
+        }
+        
+        twoCollectionView.snp.makeConstraints { make in
+            make.bottom.equalTo(collectionView.snp.bottom).offset(-8)
+            make.leading.trailing.equalToSuperview().offset(-8)
+            make.height.equalTo(150)
         }
     }
     

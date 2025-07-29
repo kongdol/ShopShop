@@ -9,9 +9,9 @@ import Alamofire
 
 class NetworkManager {
     
-    static let shared = NetworkManager()
+    //static let shared = NetworkManager()
     
-    private init() {}
+    //private init() {}
     
     func callRequest(query: String,
                      sort: String,
@@ -43,4 +43,35 @@ class NetworkManager {
             }
         
     }
+    
+    func secondCallRequest(
+                     success: @escaping (ShopList) -> Void,
+                     fail: @escaping () -> Void)
+                    {
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=과일&display=30"
+        
+        let header: HTTPHeaders = [
+            "X-Naver-Client-Id": APIKey.naverId,
+            "X-Naver-Client-Secret": APIKey.naverSecret
+        ]
+        
+        AF.request(url, method: .get, headers: header)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: ShopList.self) { response in
+                switch response.result {
+                case .success(let value):
+                    success(value)
+                    
+                case .failure(let error):
+                    // 알림창띄우기
+                    
+                    
+                    fail()
+                }
+                
+            }
+        
+    }
+    
+    
 }
