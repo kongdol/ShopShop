@@ -45,7 +45,7 @@ class ResultViewController: UIViewController {
     }
     
     func callRequest(query: String) {
-        NetworkManager().callRequest(query: query, sort: sort, page: page) { value in
+        NetworkManager.shared.callRequest(query: query, sort: sort, page: page) { value in
             print("성공", value)
             
             self.resultView.totalLabel.text = "\(value.total.formatted()) 개의 검색 결과"
